@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Joke</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        #joke { font-size: 20px; margin-bottom: 20px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="joke">Loading joke...</div>
+    <button onclick="getJoke()">Get Another Joke</button>
+    <script>
+        const jokes = [
+            "Why don't scientists trust atoms? Because they make up everything!",
+            "What do you call a fake noodle? An impasta.",
+            "How does a penguin build its house? Igloos it together.",
+            "Why did the scarecrow win an award? Because he was outstanding in his field.",
+            "What do you call cheese that isn't yours? Nacho cheese."
+        ];
+        function getJoke() {
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            document.getElementById('joke').innerText = randomJoke;
+        }
+        getJoke(); // Get a joke on load
+    </script>
+</body>
+</html>
