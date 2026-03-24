@@ -1,63 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Joke Generator</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        .top-image {
-            width: 100%;
-            max-height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        h1 { color: #333; font-size: 24px; }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .top-image {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+    }
+
+    /* Responsive joke text */
+    #joke {
+        font-size: 4vw; /* scales with screen */
+        margin-top: 20px;
+    }
+
+    /* Smaller screens tweak */
+    @media (max-width: 600px) {
         #joke {
-            font-size: 18px;
-            color: #555;
-            margin: 20px 0;
-            min-height: 60px;
-            font-style: italic;
+            font-size: 6vw;
         }
-        button {
-            background-color: #6c5ce7;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-        button:hover { background-color: #5a4bcf; }
-    </style>
+    }
+
+    .answer {
+        font-style: italic;
+    }
+</style>
 </head>
+
 <body>
 
 <div class="container">
     <img src="https://raw.githubusercontent.com/thehanzie/TheHanzie.github.io/images/cody.png" alt="Joke Image" class="top-image">
-    <h1>😂 Random Joke</h1>
-    <p id="joke">Click the button to get a joke!</p>
-    <button id="generate-btn">New Joke</button>
+    <h1>Random Joke</h1>
+    <div id="joke"></div>
 </div>
 
 <script>
@@ -74,15 +60,23 @@
         "Why did the cookie go to the hospital? Because he felt crummy."
     ];
 
-    const jokeDisplay = document.getElementById('joke');
-    const button = document.getElementById('generate-btn');
-
-    function getNewJoke() {
+    function displayRandomJoke() {
+        const jokeDisplay = document.getElementById('joke');
         const randomIndex = Math.floor(Math.random() * jokes.length);
-        jokeDisplay.innerText = jokes[randomIndex];
+        const joke = jokes[randomIndex];
+
+        // Split at the first "?"
+        const parts = joke.split('?');
+
+        if (parts.length > 1) {
+            jokeDisplay.innerHTML = parts[0] + '? <span class="answer">' + parts.slice(1).join('?') + '</span>';
+        } else {
+            jokeDisplay.innerText = joke;
+        }
     }
 
-    button.addEventListener('click', getNewJoke);
+    // Run on page load
+    window.onload = displayRandomJoke;
 </script>
 
 </body>
