@@ -13,16 +13,18 @@
     <button onclick="getJoke()">Get Another Joke</button>
     <script>
         const jokes = [
-            "Why don't scientists trust atoms? Because they make up everything!",
-            "What do you call a fake noodle? An impasta.",
-            "How does a penguin build its house? Igloos it together.",
-            "Why did the scarecrow win an award? Because he was outstanding in his field.",
-            "What do you call cheese that isn't yours? Nacho cheese."
+            "<b>Why don't scientists trust atoms?</b> <i>Because they make up everything!</i>",
+            "<b>What do you call a fake noodle?</b> <i>An impasta.</i>",
+            "<b>How does a penguin build its house?</b> <i>Igloos it together.</i>",
+            "<b>Why did the scarecrow win an award?</b> <i>Because he was outstanding in his field.</i>",
+            "<b>What do you call cheese that isn't yours?</b> <i>Nacho cheese.</i>"
         ];
+
         function getJoke() {
             const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-            document.getElementById('joke').innerText = randomJoke;
+            document.getElementById('joke').innerHTML = randomJoke;
         }
+
         getJoke(); // Get a joke on load
     </script>
 </body>
