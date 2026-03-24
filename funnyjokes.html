@@ -7,6 +7,14 @@
             font-family: sans-serif;
             text-align: center;
             padding: 50px;
+        }
+
+        #topImage {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
 
         #joke {
             font-size: 50px;
@@ -22,8 +30,8 @@
 </head>
 <body>
 
-    <!-- Insert your image URL below -->
-    <img src="https://github.com/thehanzie/TheHanzie.github.io/blob/images/cody.png" alt="Cody Broncs">
+    <!-- Top Image -->
+    <img id="topImage" src="https://raw.githubusercontent.com/thehanzie/TheHanzie.github.io/images/cody.png" alt="Top Image">
 
     <div id="joke"></div>
 
@@ -43,7 +51,6 @@
             document.getElementById("joke").innerHTML = jokes[index];
         }
 
-        // Load a joke on page start
         getJoke();
     </script>
 
