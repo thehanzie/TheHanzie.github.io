@@ -19,7 +19,7 @@
 
 <div class="container">
     <img src="https://raw.githubusercontent.com/thehanzie/TheHanzie.github.io/images/cody.png" alt="Joke Image" class="top-image">
-    <h1>😂 Random Joke</h1>
+    <h1>Random Joke</h1>
 
 </div>
 
@@ -38,17 +38,11 @@
     ];
 
     const jokeDisplay = document.getElementById('joke');
-    const button = document.getElementById('generate-btn');
-
-    function getNewJoke() {
         const randomIndex = Math.floor(Math.random() * jokes.length);
         jokeDisplay.innerText = jokes[randomIndex];
     }
 
-    button.addEventListener('click', getNewJoke);
 </script>
 
 </body>
 </html>
-
-Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
