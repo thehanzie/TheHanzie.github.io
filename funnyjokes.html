@@ -1,38 +1,41 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Daily Joke</title>
     <style>
-       
-
-
-        #joke {
-            font-size: 50px;
-            margin-bottom: 50px;
-        }
-
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        #imageContainer { margin-bottom: 30px; }
+        #topImage { width: 300px; height: 300px; object-fit: cover; }
+        #joke { font-size: 50px; margin-bottom: 50px; }
+        button { padding: 50px 30px; font-size: 45px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div id="joke"></div>
+    <!-- Top Center Image -->
+    <div id="imageContainer">
+        <img id="topImage" src="https://github.com/thehanzie/TheHanzie.github.io/blob/images/cody.png?raw=true" alt="Cody Broncs">
+    </div>
 
+    <div id="joke">Loading joke...</div>
+    <button onclick="getJoke()">Get Another Joke</button>
 
     <script>
         const jokes = [
-            "<b>Why don't scientists trust atoms?</b><br><i>Because they make up everything!</i>",
-            "<b>What do you call a fake noodle?</b><br><i>An impasta.</i>",
-            "<b>How does a penguin build its house?</b><br><i>Igloos it together.</i>",
-            "<b>Why did the scarecrow win an award?</b><br><i>Because he was outstanding in his field.</i>",
-            "<b>What do you call cheese that isn't yours?</b><br><i>Nacho cheese.</i>"
+            "<b>Why don't scientists trust atoms?</b><br> <i>Because they make up everything!</i>",
+            "<b>What do you call a fake noodle?</b><br> <i>An impasta.</i>",
+            "<b>How does a penguin build its house?</b><br> <i>Igloos it together.</i>",
+            "<b>Why did the scarecrow win an award?</b><br> <i>Because he was outstanding in his field.</i>",
+            "<b>What do you call cheese that isn't yours?</b><br> <i>Nacho cheese.</i>"
         ];
 
         function getJoke() {
-            const index = Math.floor(Math.random() * jokes.length);
-            document.getElementById("joke").innerHTML = jokes[index];
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            document.getElementById('joke').innerHTML = randomJoke;
         }
 
-        getJoke();
+        getJoke(); // Get a joke on load
     </script>
 
 </body>
