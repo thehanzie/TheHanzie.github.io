@@ -1,41 +1,163 @@
+Skip to content
+thehanzie
+TheHanzie.github.io
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Files
+Go to file
+t
+cody.png
+funnyjokes.html
+TheHanzie.github.io
+/
+funnyjokes.html
+in
+images
+
+Edit
+
+Preview
+Indent mode
+
+Spaces
+Indent size
+
+4
+Line wrap mode
+
+No wrap
+Editing funnyjokes.html file contents
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Daily Joke</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
-        #imageContainer { margin-bottom: 30px; }
-        #topImage { width: 200px; height: 200px; object-fit: cover; }
-        #joke { font-size: 50px; margin-bottom: 50px; }
-        button { padding: 50px 30px; font-size: 45px; cursor: pointer; }
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        h1 { color: #333; font-size: 24px; }
+        #joke {
+            font-size: 18px;
+            color: #555;
+            margin: 20px 0;
+            min-height: 60px;
+            font-style: italic;
+        }
+        button {
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #5a4bcf; }
     </style>
 </head>
 <body>
 
-    <!-- Top Center Image -->
-    <div id="imageContainer">
-        <img id="topImage" src="https://raw.githubusercontent.com/thehanzie/TheHanzie.github.io/<branch>/<folder>/cody.png" alt="Top Image">
-    </div>
+<div class="container">
+    <img src="https://raw.githubusercontent.com/thehanzie/TheHanzie.github.io/images/cody.png" alt="Joke Image" class="top-image">
+    <h1>😂 Random Joke</h1>
+    <p id="joke">Click the button to get a joke!</p>
+    <button id="generate-btn">New Joke</button>
+</div>
 
-    <div id="joke">Loading joke...</div>
-    <button onclick="getJoke()">Get Another Joke</button> 
+<script>
+    const jokes = [
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "Why don't skeletons fight each other? They don't have the guts.",
+        "What do you call a fake noodle? An impasta.",
+        "How do you organize a space party? You planet.",
+        "Why did the bicycle fall over? Because it was two-tired!",
+        "What did one ocean say to the other ocean? Nothing, they just waved.",
+        "Why was the computer cold? It left its Windows open!",
+        "What do you call a bear with no teeth? A gummy bear.",
+        "Why did the cookie go to the hospital? Because he felt crummy."
+    ];
 
-    <script>
-        const jokes = [
-            "<b>Why don't scientists trust atoms?</b><br> <i>Because they make up everything!</i>",
-            "<b>What do you call a fake noodle?</b><br> <i>An impasta.</i>",
-            "<b>How does a penguin build its house?</b><br> <i>Igloos it together.</i>",
-            "<b>Why did the scarecrow win an award?</b><br> <i>Because he was outstanding in his field.</i>",
-            "<b>What do you call cheese that isn't yours?</b><br> <i>Nacho cheese.</i>"
-        ];
+    const jokeDisplay = document.getElementById('joke');
+    const button = document.getElementById('generate-btn');
 
-        function getJoke() {
-            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-            document.getElementById('joke').innerHTML = randomJoke;
-        }
+    function getNewJoke() {
+        const randomIndex = Math.floor(Math.random() * jokes.length);
+        jokeDisplay.innerText = jokes[randomIndex];
+    }
 
-        getJoke(); // Get a joke on load
-    </script>
+    button.addEventListener('click', getNewJoke);
+</script>
 
 </body>
 </html>
+
+Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
