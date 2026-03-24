@@ -1,10 +1,49 @@
 <!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .top-image {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+    }
+
+    /* Responsive joke text */
+    #joke {
+        font-size: 4vw; /* scales with screen */
+        margin-top: 20px;
+    }
+
+    /* Smaller screens tweak */
+    @media (max-width: 600px) {
+        #joke {
+            font-size: 6vw;
+        }
+    }
+
+    .answer {
+        font-style: italic;
+    }
+</style>
+</head>
+
 <body>
 
 <div class="container">
     <img src="https://raw.githubusercontent.com/thehanzie/TheHanzie.github.io/images/cody.png" alt="Joke Image" class="top-image">
     <h1>Random Joke</h1>
-
+    <div id="joke"></div>
 </div>
 
 <script>
@@ -19,14 +58,26 @@
         "Why was the computer cold? It left its Windows open!",
         "What do you call a bear with no teeth? A gummy bear.",
         "Why did the cookie go to the hospital? Because he felt crummy."
+        
     ];
 
-    const jokeDisplay = document.getElementById('joke');
+    function displayRandomJoke() {
+        const jokeDisplay = document.getElementById('joke');
         const randomIndex = Math.floor(Math.random() * jokes.length);
-        jokeDisplay.innerText = jokes[randomIndex];
+        const joke = jokes[randomIndex];
+
+        // Split at the first "?"
+        const parts = joke.split('?');
+
+        if (parts.length > 1) {
+            jokeDisplay.innerHTML = parts[0] + '? <span class="answer">' + parts.slice(1).join('?') + '</span>';
+        } else {
+            jokeDisplay.innerText = joke;
+        }
     }
 
+    // Run on page load
+    window.onload = displayRandomJoke;
 </script>
-
 </body>
 </html>
