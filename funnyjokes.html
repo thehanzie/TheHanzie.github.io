@@ -4,14 +4,30 @@
     <title>Daily Joke</title>
     <style>
         body { font-family: sans-serif; text-align: center; padding: 50px; }
+        #imageContainer { margin-bottom: 30px; }
+        #topImage { width: 200px; height: 200px; object-fit: cover; }
         #joke { font-size: 50px; margin-bottom: 50px; }
         button { padding: 50px 30px; font-size: 45px; cursor: pointer; }
     </style>
 </head>
 <body>
+
+    <!-- Top Center Image -->
+    <div id="imageContainer">
+        <img id="topImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpvjxfV-DHMIzdkAM7Lhrje47HDd7LrBom-Q&s" alt="Cody Broncs">
+    </div>
+
     <div id="joke">Loading joke...</div>
     <button onclick="getJoke()">Get Another Joke</button>
+
     <script>
+        // Ask user for image URL
+        const imageUrl = prompt("Enter the image URL:");
+        
+        if (imageUrl) {
+            document.getElementById("topImage").src = imageUrl;
+        }
+
         const jokes = [
             "<b>Why don't scientists trust atoms?</b><br> <i>Because they make up everything!</i>",
             "<b>What do you call a fake noodle?</b><br> <i>An impasta.</i>",
@@ -27,5 +43,6 @@
 
         getJoke(); // Get a joke on load
     </script>
+
 </body>
 </html>
