@@ -3,45 +3,56 @@
 <head>
     <title>Daily Joke</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
-        #imageContainer { margin-bottom: 30px; }
-        #topImage { width: 200px; height: 200px; object-fit: cover; }
-        #joke { font-size: 50px; margin-bottom: 50px; }
-        button { padding: 50px 30px; font-size: 45px; cursor: pointer; }
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #topImage {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+
+        #joke {
+            font-size: 50px;
+            margin-bottom: 50px;
+        }
+
+        button {
+            padding: 20px 30px;
+            font-size: 25px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Top Center Image -->
-    <div id="imageContainer">
-        <img id="topImage" src="https://github.com/thehanzie/TheHanzie.github.io/blob/images/cody.png" alt="Cody Broncs">
-    </div>
+    <!-- Insert your image URL below -->
+    <img id="topImage" src="PASTE_IMAGE_URL_HERE" alt="Top Image">
 
-    <div id="joke">Loading joke...</div>
+    <div id="joke"></div>
+
     <button onclick="getJoke()">Get Another Joke</button>
 
     <script>
-        // Ask user for image URL
-        const imageUrl = prompt("Enter the image URL:");
-        
-        if (imageUrl) {
-            document.getElementById("topImage").src = "https://github.com/thehanzie/TheHanzie.github.io/blob/images/cody.png";
-        }
-
         const jokes = [
-            "<b>Why don't scientists trust atoms?</b><br> <i>Because they make up everything!</i>",
-            "<b>What do you call a fake noodle?</b><br> <i>An impasta.</i>",
-            "<b>How does a penguin build its house?</b><br> <i>Igloos it together.</i>",
-            "<b>Why did the scarecrow win an award?</b><br> <i>Because he was outstanding in his field.</i>",
-            "<b>What do you call cheese that isn't yours?</b><br> <i>Nacho cheese.</i>"
+            "<b>Why don't scientists trust atoms?</b><br><i>Because they make up everything!</i>",
+            "<b>What do you call a fake noodle?</b><br><i>An impasta.</i>",
+            "<b>How does a penguin build its house?</b><br><i>Igloos it together.</i>",
+            "<b>Why did the scarecrow win an award?</b><br><i>Because he was outstanding in his field.</i>",
+            "<b>What do you call cheese that isn't yours?</b><br><i>Nacho cheese.</i>"
         ];
 
         function getJoke() {
-            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-            document.getElementById('joke').innerHTML = randomJoke;
+            const index = Math.floor(Math.random() * jokes.length);
+            document.getElementById("joke").innerHTML = jokes[index];
         }
 
-        getJoke(); // Get a joke on load
+        // Load a joke on page start
+        getJoke();
     </script>
 
 </body>
