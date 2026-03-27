@@ -131,12 +131,9 @@ const jokes = [
         const randomIndex = Math.floor(Math.random() * jokes.length);
         const joke = jokes[randomIndex];
 
-        // Split at the first "?"
-        const parts = joke.split('?');
+        // Split at the first "
 
-        if (parts.length > 1) {
-            jokeDisplay.innerHTML = parts[0] + '? <span class="answer">' + parts.slice(1).join('?') + '</span>';
-        } else {
+       
             jokeDisplay.innerHTML = joke;
         }
     }
