@@ -137,7 +137,7 @@ const jokes = [
         if (parts.length > 1) {
             jokeDisplay.innerHTML = parts[0] + '? <span class="answer">' + parts.slice(1).join('?') + '</span>';
         } else {
-            jokeDisplay.innerText = joke;
+            jokeDisplay.innerHTML = joke;
         }
     }
 
